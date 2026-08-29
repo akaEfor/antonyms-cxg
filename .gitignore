@@ -1,2 +1,19 @@
 # Environments
 .DS_Store
+data/.DS_Store
+scripts/.DS_Store
+src/.DS_Store
+
+# Byte-compiled / optimized / DLL files
+src/__pycache__/
+src/*.py[codz]
+src/*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+src/.ipynb_checkpoints
+
+# IPython
+src/profile_default/
+src/ipython_config.py
+
