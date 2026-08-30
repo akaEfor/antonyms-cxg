@@ -36,8 +36,7 @@ selectKeyFields <- function(pairs) {
 filtPairs <- function(pairs, keepInvalids, keepProform, keyFieldsOnly, probThreshold, 
                       excludeCxn1, excludeCxn2, Xpaired, Ypaired) {
   res <- pairs %>% 
-    #dplyr::filter(!startsWith(as.character(NymType), 'x-')) %>% 
-    dplyr::select(-WordsMatch, -HasRelated) %>%
+    dplyr::select(-WordsMatch) %>%
     dplyr::mutate(
       nymClass = if_else(
         startsWith(as.character(NymType), 'antonym'), 'antonym',
@@ -45,12 +44,6 @@ filtPairs <- function(pairs, keepInvalids, keepProform, keyFieldsOnly, probThres
             if_else(startsWith(as.character(NymType), 'x-'), 'excluded',
                     if_else(NymType == 'proform', 'proform', 'residual'
                             ) ) ) ) )
-
-#  if_else(startsWith(as.character(NymType), 'nym-'), 'other-nym',
-#          if_else(NymType == 'other-conventional', 'other-conventional',
-#                  if_else(startsWith(as.character(NymType), 'other-') | startsWith(as.character(NymType), 'contrast-') | startsWith(as.character(NymType), 'opposition-'), 'other-contrast',
-#                          NymType        
-#                  ) ) ) ) ) )
 
   res <- combineProb(res)
 
