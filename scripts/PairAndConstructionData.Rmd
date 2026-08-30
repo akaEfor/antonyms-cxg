@@ -1,0 +1,41 @@
+---
+title: "Pair and Construction Data"
+output: html_document
+---
+
+## Overview
+
+Before starting, go to `CxnsInit.R` and update scriptsDir to the location of the scripts dir in the local antonyms-cxg folder, then source the init file:
+```r
+source(CxnsInit.R)
+```
+
+To generate the datasets to be used for pair/construction mask test analysis, source the CxnsCoreDataSets file: 
+```r
+source(CxnsCoreDataSets.R)
+```
+
+This will build the main dataset used for analysis (cxnpairSrc13) and some useful subsets e.g. for 
+canonical pairs, wordnet-only pairs etc. See here also for datasets that show reciprocal matches for synonyms and
+unrelated pairs, and that group common word matches in a given position (e.g. used when analysing words returned in
+'more X than <mask>')
+
+For mixed-effect modelling, go to `CxnsCoreMixedModels.R`. See comments in the file on running and testing the reciprocity and expected probability models.
+
+For processing related to full-vocabulary testing:
+
+```r
+source(CxnsVocabContrastTypes.R)
+```
+Sourcing the contrast types file generates datasets for each construction based on the vocabulary test master files (in ../data/master-cxn-pair-files) and which show the split of antonyms / co-hyponyms / residual and other contrasts for each construction at the 0.5, 0.65 and 0.8 probability thresholds.
+
+```r
+source(CxnsVocabOverlap.R)
+```
+Sourcing the overlap file calculates the levels of overlap between pairs found in OR constructions (whether, either, question and or).
+
+See `CxnsVocabPlots.R` for code to generate charts relating to contrast types and change in number of antonyms at different thresholds.
+
+---
+
+
