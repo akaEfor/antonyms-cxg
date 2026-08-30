@@ -145,9 +145,9 @@ def getTemplate(cxn, word):
             return f", {word} but <mask>"
         case 'mask-but-X':
             return f", <mask> but {word}"
-        case 'X-and-mask':
+        case 'andX':
             return f", {word} and <mask>"
-        case 'mask-and-X':
+        case 'andY':
             return f", <mask> and {word}"
         case 'XnotY-X':
             return f", {word} not <mask> "    
