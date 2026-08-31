@@ -4,7 +4,53 @@ i.e. where the vocabulary seed word is in the X or Y slot and the `<mask>` is in
 The pairs have been hand-annotated - the primary annotation field of interest is `NymType` (captures the contrast type).
 
 Annotation was done initially for the `whether` construction. 
-Pairs were fully annotated for contrast type and part-of-speech (`POS`) and this was copied to other construction files that had pairs overlapping with the pairs found by `whether`. 
+Pairs were fully annotated for contrast type and part-of-speech (`POS`) and this was copied to other construction files that had pairs overlapping with the pairs found by `whether`. Some annotations were added for `AntonymType`(indicating e.g., whether scalar / converse / reversive), however this field was not used in the analysis.
+
 Remaining pairs in other constructions were annotated for `NymType` and, in the case of antonyms, were annotated for `POS`.
+
+---
+
+Notes on `NymType` values:
+
+In the dissertation analysis, a number of broad contrast types are specified, namely:
+`antonym`, `co-hyponym`, `residual contrast`, `proform`
+
+The actual annotations found in the `NymType` field contain more detail than this, as follows:
+
+- Antonyms
+    - `antonym`
+    - `antonym-numeric` for numeric oppositions e.g., `last/first`
+    - `antonym-temporal` for temporal oppositions e.g., `early/late`
+    - `antonym-secondary` a note-to-self where oppositions might not be the most conventional for a given domain e.g., `flooded/dry`
+
+- Co-hyponyms
+    - `co-hyponym`
+    - `co-hyponym-numeric` for numeric contrasts e.g., `hundreds/thousands`
+    - `co-hyponym-temporal` for temporal contrasts e.g., `hours/days`
+
+- Residual, which groups various other sense relations and other contrasts
+    - `nym-hyponym` for is-a relations e.g.`human/animal`
+    - `nym-meronym` for part-whole relations e.g.`single/album`
+    - `nym-near-synonym` e.g. `deceptive/misleading`
+    - `contrast-group-individual` e.g. `corporation/individual`,`bundles/singles`
+    - `contrast-scalar` for contrasts that occupy (possibly adjacent) points on some scale e.g., `good/great`
+    - `contrast-sequence` used for some pairs in the `fromto` construction that indicated a sequence e.g., `hospitalized/discharged`
+    - `contrast-conceptual` e.g., `causation/correlation`,`quality/quantity`
+    - `other-conventional` for conventionalised pairs e.g., `cradle/grave`
+    - `other-related` for related words e.g. `declined/comment` (the line between this and conventionalised pairs is admittedly fuzzy)
+    - `opposition-indirect` for oppositions in more than one semantic domain e.g. `coolest/worst`
+
+- Proform (generally used for `not` or  `otherwise`)
+
+- Categories that were excluded from analysis for various reasons were prepended with `x-`
+    - `x-identical` for pairs consisting of two instances of the same word e.g., `coast/coast`
+    - `x-none` used if any member of the pair contained a partial (subword) token
+    - `x-incomplete` used (rarely) where a pairing seemed to sit more naturally into a larger phrasal structure, rather than standing alone
+    - `x-odd` used for pairings that resisted easy classification
+---
+
+Notes on `POS` values:
+
+While most pairs features words of the same word class, this was not always the case. A choice of `POS` value to use was made based on a likely interpretation within the given construction frame (often this favoured an adjectival interpretation). However, a better approach might flag these cases explicitly.
 
 ---
