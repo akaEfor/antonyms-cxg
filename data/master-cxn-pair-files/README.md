@@ -51,6 +51,12 @@ The actual annotations found in the `NymType` field contain more detail than thi
 
 Notes on `POS` values:
 
-While most pairs features words of the same word class, this was not always the case. A choice of `POS` value to use was made based on a likely interpretation within the given construction frame (often this favoured an adjectival interpretation). However, a better approach might flag these cases explicitly.
+- For a given pair, if there were multiple word class possibilities, this was indicated in the annotation e.g., adj/adv/noun for a pair like `upstairs/downstairs`; when these pairs were processed, the first POS indicated in the list was the one used to for categorisation. 
+
+- For word classes outside of adjective, noun, verb and adverb, POS annotation was prepended with `other/` e.g.`other/possessive`, `other/preposition`
+
+- Subword tokens were annotated as `partial token`
+
+- While most pairs features words of the same word class, this was not always the case. A choice of `POS` value to use was made based on a likely interpretation within the given construction frame (often this favoured an adjectival interpretation). However, a better approach might flag these cases explicitly.
 
 ---
